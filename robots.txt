@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://spektric.com/sitemap.xml
