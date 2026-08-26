@@ -232,7 +232,7 @@
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/main.js" defer></script>
 
-<!-- Netlify Form Handling Handler -->
+<!-- Netlify Form Handling + Validation Script -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const handleNetlifySubmit = (form) => {
@@ -242,6 +242,23 @@
         const statusText = form.querySelector("[data-form-status]");
         const submitBtn = form.querySelector("button[type='submit']");
         
+        // 1. Check HTML5 Standard Validation
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // 2. Extra Validation for Agreement Checkbox
+        const checkbox = form.querySelector("input[name='Acknowledged']");
+        if (checkbox && !checkbox.checked) {
+          if (statusText) {
+            statusText.style.color = "red";
+            statusText.innerText = "Please confirm the agreement checkbox before sending.";
+          }
+          checkbox.focus();
+          return;
+        }
+
         if (statusText) {
           statusText.style.color = "#000";
           statusText.innerText = "Submitting...";
