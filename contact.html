@@ -88,7 +88,8 @@
         <p class="visually-hidden" aria-live="polite" data-sched-live></p>
         <div data-sched-details hidden style="margin-top:2rem">
           <div class="sched-summary" data-sched-summary></div>
-          <form id="consult-form" class="form" name="consultation-request" method="POST" action="/" netlify-honeypot="company" novalidate>
+          <form id="consult-form" class="form" name="consultation-request" method="POST" action="/" data-netlify="true" netlify-honeypot="company" novalidate>
+          <!-- <form id="consult-form" class="form" name="consultation-request" method="POST" action="/" netlify-honeypot="company" novalidate> -->
             <input type="hidden" name="form-name" value="consultation-request">
             <p class="hp" aria-hidden="true" style="display:none;"><label>Leave this field empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label></p>
             <div class="field-row">
